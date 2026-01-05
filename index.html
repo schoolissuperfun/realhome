@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Site</title>
+    <style>
+        /* --- Reset & Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            background: #000;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            overflow: hidden;
+            display: flex;
+        }
+
+        /* --- Split Screen Container --- */
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            gap: 10px; /* Small gap between the two zones */
+            padding: 20px;
+        }
+
+        /* --- Common Button Styles --- */
+        .nav-btn {
+            flex: 1; /* Makes both buttons equal width */
+            height: 90vh; /* Very tall */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5vw; /* Scales with screen width */
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- Left Button: Games (Blue) --- */
+        .games-btn {
+            background: linear-gradient(180deg, #007cf0 0%, #00dfd8 100%);
+            box-shadow: 0 0 20px rgba(0, 124, 240, 0.2);
+        }
+
+        .games-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 50px rgba(0, 223, 216, 0.5);
+            letter-spacing: 10px;
+        }
+
+        /* --- Right Button: Proxies (Red) --- */
+        .proxies-btn {
+            background: linear-gradient(180deg, #ff4b2b 0%, #ff416c 100%);
+            box-shadow: 0 0 20px rgba(255, 75, 43, 0.2);
+        }
+
+        .proxies-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 50px rgba(255, 65, 108, 0.5);
+            letter-spacing: 10px;
+        }
+
+        /* Shine Effect Overlay */
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Button Active State */
+        .nav-btn:active {
+            transform: scale(0.98);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="nav-btn games-btn" onclick="launch('Games', 'https://billybong51.github.io/games/')">
+            Games
+        </button>
+
+        <button class="nav-btn proxies-btn" onclick="launch('Proxies', 'https://billybong51.github.io/proxies')">
+            Proxies
+        </button>
+    </div>
+
+    <script>
+        function launch(name, url) {
+            const newTab = window.open('about:blank', '_blank');
+            if (!newTab) {
+                alert('Popup blocked! Please allow popups to open the link.');
+                return;
+            }
+
+            const content = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>${name}</title>
+                    <style>
+                        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: #000; }
+                        iframe { border: none; width: 100%; height: 100%; }
+                    </style>
+                </head>
+                <body>
+                    <iframe src="${url}"></iframe>
+                </body>
+                </html>`;
+
+            newTab.document.open();
+            newTab.document.write(content);
+            newTab.document.close();
+        }
+    </script>
+</body>
+</html>

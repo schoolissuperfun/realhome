@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clever | Log in</title>
     
-    <link rel="icon" type="image/png" href="https://thegamewebsite.github.io/home/logo.png">
+    <link rel="icon" type="image/png" href="https://thegamewebsite.github.io/logo.png?v=5">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body, html { height: 100%; width: 100%; background: #000; font-family: 'Inter', sans-serif; overflow: hidden; }
 
-        /* 2x2 Grid for perfect centering */
+        /* Custom Grid to match the drawing */
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 2fr; /* Top two rows smaller, bottom row larger */
             height: 100vh;
             width: 100vw;
-            gap: 12px; 
-            padding: 12px;
+            gap: 15px; 
+            padding: 15px;
         }
 
         .nav-btn {
@@ -38,49 +38,71 @@
             text-decoration: none;
             outline: none;
             overflow: hidden;
-            font-size: 3.5vw; 
+            font-size: 2.5vw; 
         }
 
-        /* --- Quadrant Styling --- */
+        /* --- Specific Button Placements --- */
+        
+        /* Left Column, Top Row */
         .games-main-btn {
+            grid-column: 1;
+            grid-row: 1;
             background: linear-gradient(135deg, #007cf0, #00dfd8);
-            border-radius: 40px 15px 40px 15px;
+            border-radius: 40px 15px 10px 15px;
         }
 
+        /* Left Column, Middle Row */
         .games-req-btn {
+            grid-column: 1;
+            grid-row: 2;
             background: linear-gradient(225deg, #4facfe, #00f2fe);
-            border-radius: 15px 40px 15px 40px;
+            border-radius: 10px 15px 40px 15px;
         }
 
+        /* Right Column, Spans Top and Middle Row */
         .proxies-btn {
+            grid-column: 2;
+            grid-row: 1 / span 2;
             background: linear-gradient(225deg, #ff4b2b, #ff416c);
             border-radius: 15px 40px 15px 40px;
+            font-size: 3.5vw;
         }
 
+        /* Bottom Left */
         .tools-btn {
+            grid-column: 1;
+            grid-row: 3;
             background: linear-gradient(135deg, #7928ca, #ff0080);
             border-radius: 40px 15px 40px 15px;
         }
 
+        /* Bottom Right */
+        .changelog-btn {
+            grid-column: 2;
+            grid-row: 3;
+            background: linear-gradient(135deg, #333, #555);
+            border-radius: 15px 40px 15px 40px;
+        }
+
         .nav-btn:hover {
             filter: brightness(1.2);
-            transform: scale(1.02);
+            transform: scale(1.01);
             z-index: 10;
         }
 
         span {
             filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
             pointer-events: none;
-            line-height: 1.1;
+            padding: 10px;
         }
 
         .sub-text {
-            font-size: 1.4vw;
+            font-size: 1.1vw;
             font-weight: 600;
             text-transform: none;
             display: block;
-            margin-top: 8px;
-            opacity: 0.9;
+            margin-top: 5px;
+            opacity: 0.8;
         }
     </style>
 </head>
@@ -88,11 +110,11 @@
 
     <div class="container">
         <button class="nav-btn games-main-btn" onclick="launch('Main Games', 'https://thegamewebsite.github.io/games/')">
-            <span>Main<br>Games</span>
+            <span>Main Games</span>
         </button>
 
         <button class="nav-btn games-req-btn" onclick="launch('Requested Games', 'https://thegamewebsite.github.io/requested-games/')">
-            <span>Requested Games<br><span class="sub-text">(Request Form, Cookie Clicker, etc.)</span></span>
+            <span>Requested Games<br><span class="sub-text">Cookie Clicker, Bitlife, etc.</span></span>
         </button>
 
         <button class="nav-btn proxies-btn" onclick="launch('Proxies', 'https://thegamewebsite.github.io/proxies')">
@@ -100,7 +122,11 @@
         </button>
 
         <button class="nav-btn tools-btn" onclick="launch('Movies & Tools', 'https://thegamewebsite.github.io/movies-tools/')">
-            <span>Movies<br>& Tools</span>
+            <span>Movies and Tools</span>
+        </button>
+
+        <button class="nav-btn changelog-btn" onclick="launch('Changelog and Credits', 'https://thegamewebsite.github.io/changelogandcredits/')">
+            <span>Changelog and Credits</span>
         </button>
     </div>
 

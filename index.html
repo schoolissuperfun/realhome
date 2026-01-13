@@ -69,37 +69,55 @@
             border-radius: 40px 15px 40px 15px;
         }
 
-        /* --- NEWS BLOCK (SINGLE TEXT AREA) --- */
+        /* --- UPDATED NEWS BLOCK --- */
         .news-btn {
             grid-column: 2;
             grid-row: 3;
             background: #111; 
             border: 2px solid #333;
             border-radius: 15px 40px 15px 40px;
-            justify-content: flex-start;
             padding: 25px;
             cursor: default;
+            display: block; /* Changed from flex to allow proper scrolling */
+            overflow-y: auto; /* This makes it scrollable */
+            text-align: left;
+        }
+
+        /* Dark Slim Scrollbar */
+        .news-btn::-webkit-scrollbar {
+            width: 8px;
+        }
+        .news-btn::-webkit-scrollbar-track {
+            background: #111;
+            border-radius: 0 40px 15px 0;
+        }
+        .news-btn::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+        .news-btn::-webkit-scrollbar-thumb:hover {
+            background: #4facfe;
         }
 
         .news-header {
             color: #4facfe;
             font-size: 1.8vw;
             margin-bottom: 15px;
-            text-align: left;
-            width: 100%;
             font-weight: 900;
             letter-spacing: 1px;
+            position: sticky; /* Keeps "NEWS" title visible while scrolling */
+            top: 0;
+            background: #111;
+            padding-bottom: 5px;
         }
 
         .news-text {
             text-transform: none; 
             font-weight: 400;
             font-size: 1.3vw;
-            text-align: left;
-            width: 100%;
             color: #ccc;
-            line-height: 1.4;
-            white-space: pre-wrap; /* Keeps your line breaks if you press enter */
+            line-height: 1.6;
+            white-space: pre-wrap;
         }
 
         .nav-btn:not(.news-btn):hover {
@@ -145,13 +163,14 @@
 
         <div class="nav-btn news-btn">
             <div class="news-header">NEWS</div>
-            <div class="news-text">
-1/13/26: Added Buckshot Roulette, its in Requeted Games, it takes a bit to load so be patient there is sometimes are weird glitch where you get an add for an ai chatroom iykyk so just ignore that 
-1/12/26:Added more tools and movies to Movies and Tools
+            <div class="news-text">1/13/26: Added Buckshot Roulette, its in Requeted Games, it takes a bit to load so be patient there is sometimes are weird glitch where you get an add for an ai chatroom iykyk so just ignore that 
+1/12/26: Added more tools and movies to Movies and Tools
 1/12/26: Added UV Static in Proxies it is really good but in sometimes German for some reason
-1/12/26:Added Gn-Math(Game Website) its in Requested Games
+1/12/26: Added Gn-Math(Game Website) its in Requested Games
 1/12/26: I stopped being retarded and turned this into a news section
-</div>
+1/11/26: Adding even more placeholder text to test the scrolling functionality...
+1/10/26: Testing scroll again... if you can read this, the scrolling fix is working perfectly.
+            </div>
         </div>
     </div>
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clever | Log in</title>
     
-    <link rel="icon" type="image/png" href="https://https://schoolissuperfun.github.io//home/logo.png">
+    <link rel="icon" type="image/png" href="https://schoolissuperfun.github.io/logo.png">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -69,7 +69,6 @@
             border-radius: 40px 15px 40px 15px;
         }
 
-        /* --- UPDATED NEWS BLOCK --- */
         .news-btn {
             grid-column: 2;
             grid-row: 3;
@@ -78,8 +77,8 @@
             border-radius: 15px 40px 15px 40px;
             padding: 25px;
             cursor: default;
-            display: block; /* Changed from flex to allow proper scrolling */
-            overflow-y: auto; /* This makes it scrollable */
+            display: block; 
+            overflow-y: auto; 
             text-align: left;
         }
 
@@ -105,7 +104,7 @@
             margin-bottom: 15px;
             font-weight: 900;
             letter-spacing: 1px;
-            position: sticky; /* Keeps "NEWS" title visible while scrolling */
+            position: sticky; 
             top: 0;
             background: #111;
             padding-bottom: 5px;
@@ -145,11 +144,11 @@
 <body>
 
     <div class="container">
-        <button class="nav-btn games-main-btn" onclick="launch('Main Games', 'https://schoolissuperfun.github.io//games/')">
+        <button class="nav-btn games-main-btn" onclick="launch('Main Games', 'https://schoolissuperfun.github.io/games/')">
             <span>Main Games</span>
         </button>
 
-        <button class="nav-btn games-req-btn" onclick="launch('Requested Games', 'https://schoolissuperfun.github.io//requested-games/')">
+        <button class="nav-btn games-req-btn" onclick="launch('Requested Games', 'https://schoolissuperfun.github.io/requested-games/')">
             <span>Requested Games<br><span class="sub-text">Games In News, Game Websites</span></span>
         </button>
 
@@ -164,27 +163,25 @@
         <div class="nav-btn news-btn">
             <div class="news-header">NEWS</div>
             <div class="news-text">
-1/21/26: Added better cloaking kind of like Pegleg if others are confued help them
+1/21/26: Added better cloaking kind of like Pegleg if others are confused help them
 1/13/26: Added Buckshot Roulette, its in Requested Games, it takes a bit to load so be patient 
 1/12/26: Added more tools and movies to Movies and Tools
 1/12/26: Added UV Static in Proxies it is really good but in sometimes German for some reason
 1/12/26: Added Gn-Math(Game Website) its in Requested Games
-1/12/26: I stopped being retarded and turned this into a news section
-1/11/26: Adding even more placeholder text to test the scrolling functionality...
-1/10/26: Testing scroll again... if you can read this, the scrolling fix is working perfectly.
+1/12/26: Fixed the layout and turned this into a news section
+1/11/26: Testing scrolling functionality...
+1/10/26: Scroll fix is working perfectly.
             </div>
         </div>
     </div>
 
     <script>
-        window.onload = function() {
-            alert("Bookmark this website and don't go on here while Blocksi is on!");
-        };
+        // window.onload alert removed for better user experience
 
         function launch(name, url) {
             const newTab = window.open('about:blank', '_blank');
             if (!newTab) {
-                alert('Popup blocked! Please allow popups.');
+                alert('Popup blocked! Please allow popups in your browser settings.');
                 return;
             }
 

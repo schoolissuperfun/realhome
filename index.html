@@ -100,23 +100,30 @@
 
         .news-header {
             color: #4facfe;
-            font-size: 1.8vw;
-            margin-bottom: 15px;
+            font-size: 1.5vw;
+            margin-bottom: 10px;
             font-weight: 900;
             letter-spacing: 1px;
             position: sticky; 
             top: 0;
             background: #111;
             padding-bottom: 5px;
+            z-index: 5;
+        }
+
+        .news-header a {
+            color: #ff416c; /* Different color to make the link pop */
+            text-decoration: underline;
+            cursor: pointer;
         }
 
         .news-text {
             text-transform: none; 
             font-weight: 400;
-            font-size: 1.3vw;
+            font-size: 1.2vw;
             color: #ccc;
-            line-height: 1.6;
-            white-space: pre-wrap;
+            line-height: 1.2; /* Squishes lines together */
+            white-space: normal; /* Prevents the 'pre' behavior from adding gaps */
         }
 
         .nav-btn:not(.news-btn):hover {
@@ -161,27 +168,27 @@
         </button>
 
         <div class="nav-btn news-btn">
-<div class="news-header">NEWS</div>
-<div class="news-text" style="line-height: 1.0; white-space: pre-line; padding: 0; margin: 0;">
-1/29/26: Added GDL and Ultrakill to Requested Games
-1/27/26: Added Mindustry for Harry, its in Requested Games
-1/27/26: I added Drive Mad, guys if you want your game to save you have to request in the <a href="https://forms.gle/1PK3AMXTvXjHnrdq8" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: underline;">game request form</a>
-1/27/26: Added Soundboard and N-Gon also changed Uv static to Interstellar
-1/21/26: Added better cloaking kind of like Pegleg if others are confused help them
-1/13/26: Added Buckshot Roulette, its in Requested Games, it takes a bit to load so be patient
-1/12/26: Added more tools and movies to Movies and Tools
-1/12/26: Added UV Static in Proxies it is really good but in sometimes German for some reason
-1/12/26: Added Gn-Math(Game Website) its in Requested Games
-1/12/26: Fixed the layout and turned this into a news section
-1/11/26: Testing scrolling functionality...
-1/10/26: Scroll fix is working perfectly.
-</div>
+            <div class="news-header">
+                NEWS (PLEASE USE <a href="https://forms.gle/1PK3AMXTvXjHnrdq8" target="_blank" rel="noopener noreferrer">REQUEST FORM</a>)
+            </div>
+            <div class="news-text">
+                1/29/26: Added GDL and Ultrakill to Requested Games<br>
+                1/27/26: Added Mindustry for Harry, its in Requested Games<br>
+                1/27/26: I added Drive Mad, guys if you want your game to save you have to request in the <a href="https://forms.gle/1PK3AMXTvXjHnrdq8" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: underline;">game request form</a><br>
+                1/27/26: Added Soundboard and N-Gon also changed Uv static to Interstellar<br>
+                1/21/26: Added better cloaking kind of like Pegleg if others are confused help them<br>
+                1/13/26: Added Buckshot Roulette, its in Requested Games, it takes a bit to load so be patient<br>
+                1/12/26: Added more tools and movies to Movies and Tools<br>
+                1/12/26: Added UV Static in Proxies it is really good but in sometimes German for some reason<br>
+                1/12/26: Added Gn-Math(Game Website) its in Requested Games<br>
+                1/12/26: Fixed the layout and turned this into a news section<br>
+                1/11/26: Testing scrolling functionality...<br>
+                1/10/26: Scroll fix is working perfectly.
+            </div>
         </div>
     </div>
 
     <script>
-        // window.onload alert removed for better user experience
-
         function launch(name, url) {
             const newTab = window.open('about:blank', '_blank');
             if (!newTab) {

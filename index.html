@@ -11,6 +11,25 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body, html { height: 100%; width: 100%; background: #000; font-family: 'Inter', sans-serif; overflow: hidden; }
 
+        /* --- PANIC BANNER --- */
+        .panic-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1); /* See-through white */
+            backdrop-filter: blur(5px); /* Blurs background behind banner */
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 5px 0;
+            font-size: 0.9vw;
+            font-weight: 600;
+            z-index: 9999;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            pointer-events: none; /* Click through it */
+        }
+
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -18,7 +37,7 @@
             height: 100vh;
             width: 100vw;
             gap: 15px; 
-            padding: 15px;
+            padding: 40px 15px 15px 15px; /* Added top padding for banner space */
         }
 
         .nav-btn {
@@ -141,20 +160,22 @@
 </head>
 <body>
 
+    <div class="panic-banner">Press Q to Panic to Google Classroom</div>
+
     <div class="container">
-        <button class="nav-btn games-main-btn" onclick="launch('Amplify', 'https://schoolissuperfun.github.io/games/', 'https://schoolissuperfun.github.io/realhome/amplify.png')">
+        <button class="nav-btn games-main-btn" onclick="launch('Main Games', 'https://schoolissuperfun.github.io/games/')">
             <span>Main Games</span>
         </button>
 
-        <button class="nav-btn games-req-btn" onclick="launch('Canva', 'https://schoolissuperfun.github.io/requested-games/', 'https://schoolissuperfun.github.io/realhome/canva.png')">
+        <button class="nav-btn games-req-btn" onclick="launch('Requested Games', 'https://schoolissuperfun.github.io/requested-games/')">
             <span>Requested Games<br><span class="sub-text">Games In News, Game Websites</span></span>
         </button>
 
-        <button class="nav-btn proxies-btn" onclick="launch('Grades', 'https://schoolissuperfun.github.io/proxies', 'https://schoolissuperfun.github.io/realhome/powerschool.png')">
+        <button class="nav-btn proxies-btn" onclick="launch('Proxies', 'https://schoolissuperfun.github.io/proxies')">
             <span>Proxies</span>
         </button>
 
-        <button class="nav-btn tools-btn" onclick="launch('Formative', 'https://schoolissuperfun.github.io/movies-tools/', 'https://schoolissuperfun.github.io/realhome/formative.png')">
+        <button class="nav-btn tools-btn" onclick="launch('Movies & Tools', 'https://schoolissuperfun.github.io/movies-tools/')">
             <span>Movies and Tools</span>
         </button>
 
@@ -186,7 +207,7 @@
     </div>
 
     <script>
-        function launch(name, url, favicon) {
+        function launch(name, url) {
             const newTab = window.open('about:blank', '_blank');
             if (!newTab) {
                 alert('Popup blocked!');
@@ -197,8 +218,8 @@
                 <!DOCTYPE html>
                 <html>
                 <head>
-                    <title>${name}</title>
-                    <link rel="icon" type="image/png" href="${favicon}">
+                    <title>Clever | Log in</title>
+                    <link rel="icon" type="image/png" href="https://schoolissuperfun.github.io/logo.png">
                     <style>
                         body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: #000; }
                         iframe { border: none; width: 100%; height: 100%; }
@@ -206,6 +227,13 @@
                 </head>
                 <body>
                     <iframe src="${url}"></iframe>
+                    <script>
+                        window.addEventListener('keydown', function(e) {
+                            if (e.key.toLowerCase() === 'q') {
+                                window.location.href = 'https://classroom.google.com';
+                            }
+                        });
+                    <\/script>
                 </body>
                 </html>`;
 
@@ -213,6 +241,13 @@
             newTab.document.write(content);
             newTab.document.close();
         }
+
+        // Panic key for the main home page
+        window.addEventListener('keydown', function(e) {
+            if (e.key.toLowerCase() === 'q') {
+                window.location.href = 'https://classroom.google.com';
+            }
+        });
     </script>
 </body>
 </html>
